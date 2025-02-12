@@ -943,9 +943,4 @@ return {
       })
     end,
   },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = true,
-  },
 } -- end of return
