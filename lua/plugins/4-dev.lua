@@ -1,5 +1,5 @@
 -- Dev
--- Things you actively use for coding.
+-- Plugins you actively use for coding.
 
 --    Sections:
 --       ## SNIPPETS
@@ -87,7 +87,7 @@ return {
   --  https://github.com/lewis6991/gitsigns.nvim
   {
     "lewis6991/gitsigns.nvim",
-    enabled = vim.fn.executable "git" == 1,
+    enabled = vim.fn.executable("git") == 1,
     event = "User BaseGitFile",
     opts = function()
       local get_icon = require("base.utils").get_icon
@@ -120,7 +120,7 @@ return {
   --  	keepBackup = false
   {
     "tpope/vim-fugitive",
-    enabled = vim.fn.executable "git" == 1,
+    enabled = vim.fn.executable("git") == 1,
     dependencies = { "tpope/vim-rhubarb" },
     cmd = {
       "Gvdiffsplit",
@@ -139,7 +139,7 @@ return {
       "Gstatus",
     },
     config = function()
-      -- NOTE: On vimplugins we use config instead of opts.
+      -- NOTE: On vim plugins we use config instead of opts.
       vim.g.fugitive_no_maps = 1
     end,
   },
@@ -162,6 +162,7 @@ return {
         -- "Struct",
       },
       open_automatic = false, -- Open if the buffer is compatible
+      nerd_font = (vim.g.fallback_icons_enabled and false) or true,
       autojump = true,
       link_folds_to_tree = false,
       link_tree_to_folds = false,
@@ -218,6 +219,9 @@ return {
     event = "User BaseFile",
     opts = {
       notify = { enabled = false },
+      tree = {
+          icon_set = "default" -- "nerd", "codicons", "default", "simple"
+      },
       panel = {
           orientation = "bottom",
           panel_size = 10,
@@ -320,7 +324,7 @@ return {
           },
         },
         ui = {
-          prompt_icon = ">",
+          prompt_icon = require("base.utils").get_icon("PromptPrefix"),
         },
       }
     end,
@@ -803,7 +807,7 @@ return {
       "sidlatau/neotest-dart",
       "Issafalcon/neotest-dotnet",
       "jfpedroza/neotest-elixir",
-      "nvim-neotest/neotest-go",
+      "fredrikaverpil/neotest-golang",
       "rcasia/neotest-java",
       "nvim-neotest/neotest-jest",
       "olimorris/neotest-phpunit",
@@ -818,7 +822,7 @@ return {
           require("neotest-dart"),
           require("neotest-dotnet"),
           require("neotest-elixir"),
-          require("neotest-go"),
+          require("neotest-golang"),
           require("neotest-java"),
           require("neotest-jest"),
           require("neotest-phpunit"),
@@ -880,7 +884,7 @@ return {
   -- This plugin is necessary for using <C-]> (go to ctag).
   {
     "skywind3000/gutentags_plus",
-    ft = { "c", "cpp" },
+    ft = { "c", "cpp", "lisp" },
     dependencies = { "ludovicchabant/vim-gutentags" },
     config = function()
       -- NOTE: On vimplugins we use config instead of opts.

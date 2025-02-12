@@ -3,11 +3,8 @@
 -- Here you can define your nvim variables.
 -- ----------------------------------------
 
--- NormalNvin lua globals
-_G.base = {}
-
 -- Theme
-base.default_colorscheme = "tokyonight-night"
+vim.g.default_colorscheme = "tokyonight-night"
 
 -- Options --------------------------------------------------------------------
 vim.opt.breakindent = true -- Wrap indent to match  line start.
@@ -70,7 +67,7 @@ if is_android then vim.opt.mouse = "v" else vim.opt.mouse = "a" end -- Enable sc
 -- Globals --------------------------------------------------------------------
 vim.g.mapleader = " " -- Set leader key.
 vim.g.maplocalleader = "," -- Set default local leader key.
-vim.g.big_file = { size = 1024 * 100, lines = 10000 } -- For files bigger than this, disable 'treesitter' (+100kb).
+vim.g.big_file = { size = 1024 * 5000, lines = 50000 } -- For files bigger than this, disable 'treesitter' (+5Mb).
 
 -- The next globals are toggleable with <space + l + u>
 vim.g.autoformat_enabled = false -- Enable auto formatting at start.
@@ -79,7 +76,7 @@ vim.g.cmp_enabled = true -- Enable completion at start.
 vim.g.codeactions_enabled = true -- Enable displaying 💡 where code actions can be used.
 vim.g.codelens_enabled = true -- Enable automatic codelens refreshing for lsp that support it.
 vim.g.diagnostics_mode = 3 -- Set code linting (0=off, 1=only show in status line, 2=virtual text off, 3=all on).
-vim.g.icons_enabled = true -- Enable icons in the UI (disable if no nerd font is available).
+vim.g.fallback_icons_enabled = false -- Enable it if you need to use Neovim in a machine without nerd fonts.
 vim.g.inlay_hints_enabled = false -- Enable always show function parameter names.
 vim.g.lsp_round_borders_enabled = true -- Enable round borders for lsp hover and signatureHelp.
 vim.g.lsp_signature_enabled = true -- Enable automatically showing lsp help as you write function parameters.
